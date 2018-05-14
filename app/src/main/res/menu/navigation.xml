@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/sos"
+        android:icon="@drawable/ic_security_black_24dp"
+        android:title="SOS" />
+
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="HOME" />
+
+    <item
+        android:id="@+id/announcement"
+        android:icon="@drawable/ic_announcement_black_24dp"
+        android:title="Announcement" />
+
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="Profile" />
+
+</menu>

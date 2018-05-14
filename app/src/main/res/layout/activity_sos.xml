@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/sos_page"
+    tools:context="com.hfad.myresidentadmin.SOS">
+
+
+    <com.ncorti.slidetoact.SlideToActView
+        android:id="@+id/example_gray_on_green"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="6dp"
+        app:area_margin="8dp"
+        app:outer_color="@color/btnSignUp"
+        app:inner_color="@color/grey"
+        app:text="Testing all the custom attributes"
+        app:text_size="12sp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        app:slider_height="80dp"
+        app:slider_locked="false" />
+
+
+
+
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "49280091089",
+    "firebase_url": "https://my-resident-app.firebaseio.com",
+    "project_id": "my-resident-app",
+    "storage_bucket": "my-resident-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49280091089:android:db9ab44ad0f44309",
+        "android_client_info": {
+          "package_name": "com.hfad.myresidentadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "49280091089-917mkn6l0oije6vme9s8lbdo8kam1eov.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hfad.myresidentadmin",
+            "certificate_hash": "175839e66045ec912de26a2b6a4482caa9b02019"
+          }
+        },
+        {
+          "client_id": "49280091089-aq5uljibvdngr0rpncg27d9adf526rj7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsJI2Os6dS4QziQjbsh6eijbnd20yWA6Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "49280091089-aq5uljibvdngr0rpncg27d9adf526rj7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
