@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +18,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.hfad.myresidentadmin.Common.Common;
 import com.hfad.myresidentadmin.Model.User;
 import com.rengwuxian.materialedittext.MaterialEditText;
+
+import java.io.FileOutputStream;
 
 import info.hoang8f.widget.FButton;
 
@@ -59,6 +62,11 @@ public class SignIn extends AppCompatActivity {
         mDialog.setMessage("Please waiting.....");
         mDialog.show();
 
+
+        //Save Phone Data
+        final String filename = "myfile.txt";
+
+
         final String localPhone = phone;
         final String localPassword = password;
 
@@ -72,6 +80,20 @@ public class SignIn extends AppCompatActivity {
                     if(Boolean.parseBoolean(user.getIsStaff())) { //If isStaff == true
 
                         if(user.getPassword().equals(localPassword)){
+
+
+
+                            //Save Phone Data
+                            try {
+                                FileOutputStream stream = openFileOutput(filename, MODE_PRIVATE);
+                                stream.write(edtPhone.getText().toString().getBytes());
+                                stream.close();
+                            } catch (Exception ex) {
+                                Log.i("Save", ex.toString());
+                            }
+
+
+
 
                             Toast.makeText(SignIn.this,"Welcome",Toast.LENGTH_SHORT).show();
                             Intent login = new Intent(SignIn.this,Home_Bottom_Navigation.class);

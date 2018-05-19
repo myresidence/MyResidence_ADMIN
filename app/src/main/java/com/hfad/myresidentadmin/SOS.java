@@ -54,7 +54,7 @@ public class SOS extends AppCompatActivity {
                 int countdown0 = (int)(millisUnilFinished * .001f);
 
                 String countdown1 = String.valueOf((int)(millisUnilFinished * .001f));
-                slide.setText(countdown1);
+                slide.setText("Disable SOS On: "+countdown1);
                 Log.i("seconds remaining: " ,""+(int) (millisUnilFinished * .001f) );
                 if(countdown0==1){
                     slide.setText("BYE !!!");
