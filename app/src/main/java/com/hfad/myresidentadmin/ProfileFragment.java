@@ -14,6 +14,10 @@ import android.view.ViewGroup;
 public class ProfileFragment extends Fragment {
 
 
+
+    View view;
+
+
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -22,13 +26,21 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
+
+
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_profile, container, false);
+        view = inflater.inflate(R.layout.fragment_profile, container, false);
+
 
 
 

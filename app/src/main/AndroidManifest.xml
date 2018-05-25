@@ -3,7 +3,7 @@
     package="com.hfad.myresidentadmin">
 
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -22,7 +22,10 @@
         <activity android:name=".SignIn" />
         <activity android:name=".SOS" />
         <activity android:name=".Visitor" />
-        <activity android:name=".Home_Bottom_Navigation"></activity>
+        <activity android:name=".Home_Bottom_Navigation" />
+        <activity android:name=".SignUp" />
+        <activity android:name=".SpaceTabLayout" />
+        <activity android:name=".Sos_Request"></activity>
     </application>
 
 </manifest>

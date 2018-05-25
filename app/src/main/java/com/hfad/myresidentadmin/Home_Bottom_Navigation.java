@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -14,6 +15,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -36,6 +38,8 @@ public class Home_Bottom_Navigation extends AppCompatActivity {
 
     private FragmentTransaction transaction;
 
+    private FloatingActionButton fab;
+
     SharedPreferences mySharedPreferences;
 
     String filename = "myfile.txt";
@@ -56,6 +60,8 @@ public class Home_Bottom_Navigation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home__bottom__navigation);
+
+        fab = (FloatingActionButton)findViewById(R.id.fab);
 
 
         //Hide Action Bar
@@ -101,6 +107,48 @@ public class Home_Bottom_Navigation extends AppCompatActivity {
         transaction.commit();
 
 
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(Home_Bottom_Navigation.this);
+                builder.setTitle("SOS Button Confirmation");
+                builder.setMessage("Are You Confirm Select SOS Button ?");
+
+
+                builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        Intent sos_btn = new Intent(Home_Bottom_Navigation.this,SOS.class);
+                        startActivity(sos_btn);
+
+                        Toast.makeText(Home_Bottom_Navigation.this, "Our Security Guard Will Reached To Your Door Step ASAP!",Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+                builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+
+
+                    }
+                });
+
+                final  AlertDialog alertDialog = builder.create();
+
+                alertDialog.show();
+
+                alertDialog.setCanceledOnTouchOutside(false);
+                alertDialog.setCancelable(false);
+
+            }
+        });
+
+
 
 
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -108,49 +156,7 @@ public class Home_Bottom_Navigation extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
 
-                if(id == R.id.sos){
-
-                    toolbar.setTitle("SOS");
-
-                    fragment = new HomeFragment();
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(Home_Bottom_Navigation.this);
-                    builder.setTitle("SOS Button Confirmation");
-                    builder.setMessage("Are You Confirm Select SOS Button ?");
-
-
-                    builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-
-                            Intent sos_btn = new Intent(Home_Bottom_Navigation.this,SOS.class);
-                            startActivity(sos_btn);
-
-                            Toast.makeText(Home_Bottom_Navigation.this, "Our Security Guard Will Reached To Your Door Step ASAP!",Toast.LENGTH_SHORT).show();
-
-                        }
-                    });
-
-                    builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-
-
-
-                        }
-                    });
-
-                    final  AlertDialog alertDialog = builder.create();
-
-                    alertDialog.show();
-
-                    alertDialog.setCanceledOnTouchOutside(false);
-                    alertDialog.setCancelable(false);
-
-
-
-
-                }else if(id == R.id.home){
+               if(id == R.id.home){
                     toolbar.setTitle("HOME");
                     fragment = new HomeFragment();
 

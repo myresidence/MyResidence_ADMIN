@@ -1,8 +1,10 @@
 package com.hfad.myresidentadmin;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,7 +29,9 @@ import static android.content.Context.MODE_PRIVATE;
 public class HomeFragment extends Fragment {
 
 
-    TextView ShowName, ShowUnit;
+
+
+    TextView name,Outstanding_Bal;
 
 
     SharedPreferences mySharedPreferences;
@@ -43,7 +47,7 @@ public class HomeFragment extends Fragment {
 
 
 
-    String Name, Unit, Level, No;
+    String Name, Unit, Level, No, Outstanding;
 
 
     public HomeFragment() {
@@ -80,9 +84,8 @@ public class HomeFragment extends Fragment {
 
 
 
-
-        ShowName = (TextView) view.findViewById(R.id.name);
-        ShowUnit  = (TextView) view.findViewById(R.id.unit_no);
+        name = (TextView) view.findViewById(R.id.name_home);
+        Outstanding_Bal = (TextView) view.findViewById(R.id.Outstanding_Bal);
 
 
         //Get User Details
@@ -103,13 +106,15 @@ public class HomeFragment extends Fragment {
                     Level =user.getLevel();
                     Unit = user.getUnit();
                     No = user.getNo();
-
-                    ShowName.setText("Welcome , "+Name);
-                    ShowUnit.setText("Unit No: "+Unit+"-"+Level+"-"+No);
-
-                    //Toast.makeText(getActivity(),"Successful ",Toast.LENGTH_SHORT).show();
+                    Outstanding = user.getOutstanding();
 
 
+
+
+                    //Toast.makeText(getActivity(),"Welcome , "+Name,Toast.LENGTH_SHORT).show();
+
+                    name.setText(Name);
+                    Outstanding_Bal.setText(Outstanding);
 
                 }else {
 
@@ -124,6 +129,36 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
+        CardView AddUser = (CardView) view.findViewById(R.id.SignUp);
+        CardView SOS_MANAGEMENT = (CardView) view.findViewById(R.id.SOS_History);
+
+
+
+        AddUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "Register Member!",Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(HomeFragment.this.getActivity(), SignUp.class); //Fragment to Activity Intent
+                startActivity(intent);
+
+            }
+        });
+
+
+
+        SOS_MANAGEMENT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "SOS MANAGEMENT!",Toast.LENGTH_SHORT).show();
+
+                Intent SOS = new Intent(HomeFragment.this.getActivity(), Sos_Request.class); //Fragment to Activity Intent
+                startActivity(SOS);
 
             }
         });

@@ -5,7 +5,7 @@ package com.hfad.myresidentadmin.Model;
  */
 
 public class User {
-    private String Name,Password,Phone,IsStaff,Age,Level,No,Type,Unit,carPlateNo,Email,Gender,Ic,secureCode;
+    private String Name,Password,Phone,IsStaff,Age,Level,No,Type,Unit,carPlateNo,Email,Gender,Ic,secureCode,Outstanding;
 
     public User(String name, String password) {
         Name = name;
@@ -16,8 +16,17 @@ public class User {
         return Age;
     }
 
+    public String getOutstanding() {
+        return Outstanding;
+    }
+
+    public void setOutstanding(String outstanding) {
+        Outstanding = outstanding;
+    }
+
     public void setAge(String age) {
         Age = age;
+
     }
 
     public String getLevel() {

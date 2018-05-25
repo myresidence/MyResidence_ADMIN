@@ -31,6 +31,8 @@
     <color name="darkblue">#23283a</color>
     <color name="testcolorblue">#152b38</color>
     <color name="pink">#fe104d</color>
+    <color name="red">#900C3F</color>
+    <color name="white">#ffff</color>
 
     <color name="green1">#a9d440</color>
     <color name="blue1">#09c6df</color>

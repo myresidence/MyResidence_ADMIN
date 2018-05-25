@@ -21,13 +21,13 @@ public class Common {
 
     public static final String baseUrl = "https://maps.googleapis.com";
 
-    public static String convertCodeToStatus(String code){
+    public static String convertCodeToStatus1(String code){
         if (code.equals("0"))
-            return "Placed";
+            return "Pending";
         else if (code.equals("1"))
             return "On My Way";
         else
-            return "Shipped";
+            return "Settle";
     }
 
 

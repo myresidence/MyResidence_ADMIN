@@ -25,7 +25,7 @@ public class SOS extends AppCompatActivity {
 
     SlideToActView slide;
 
-    int secs = 6;
+    int secs = 20; //set Minitu
 
 
 
