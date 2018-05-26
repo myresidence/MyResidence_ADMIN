@@ -2,6 +2,7 @@ package com.hfad.myresidentadmin;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -34,6 +35,8 @@ public class Sos_Request extends AppCompatActivity {
 
     String STATUS;
 
+    private ActionBar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +48,14 @@ public class Sos_Request extends AppCompatActivity {
         request = db.getReference("SOS_STATUS");
 
         //Init
-        recyclerView = (RecyclerView)findViewById(R.id.listOrders);
+        recyclerView = (RecyclerView)findViewById(R.id.sosRequest);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
-        loadRequest(); //load all Orders
+        loadRequest(); //load all Request
+
+        toolbar = getSupportActionBar();
 
 
     }
@@ -70,12 +75,12 @@ public class Sos_Request extends AppCompatActivity {
             @Override
             protected void populateViewHolder(SosViewHolder viewHolder, final SOS model, int position) {
 
-                viewHolder.txtSosID.setText(adapter.getRef(position).getKey());
-                viewHolder.txtSosStatus.setText(Common.convertCodeToStatus1(model.getStatus()));
-                viewHolder.txtSosUser.setText(model.getUser());
-                viewHolder.txtSosUnit.setText(model.getUnit());
-                viewHolder.txtSosDate.setText(model.getDate());
-                viewHolder.txtSosTime.setText(model.getTime());
+                viewHolder.txtSosID.setText("SOS_ID: #"+adapter.getRef(position).getKey());
+                viewHolder.txtSosStatus.setText("Status: "+Common.convertCodeToStatus1(model.getStatus()));
+                viewHolder.txtSosUser.setText("User: "+model.getUser());
+                viewHolder.txtSosUnit.setText("Unit: "+model.getUnit());
+                viewHolder.txtSosDate.setText("Request Date: "+model.getDate());
+                viewHolder.txtSosTime.setText("Request Time: "+model.getTime());
 
                 viewHolder.setItemClickListener(new ItemClickListener() {
                     @Override
@@ -127,7 +132,16 @@ public class Sos_Request extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
-                item.setStatus(String.valueOf(spinner.getSelectedIndex()).toString());
+
+                String STATUS = String.valueOf(spinner.getSelectedIndex()).toString();
+
+
+                //toolbar.setTitle(STATUS);  //TEST SPINNER TEXT
+
+
+                item.setStatus(STATUS);
+
+
 
 
                 request.child(localKey).setValue(item);

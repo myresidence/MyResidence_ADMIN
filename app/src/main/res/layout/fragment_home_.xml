@@ -7,8 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.hfad.myresidentadmin.HomeFragment"
-    android:background="#fcfcfc"
-    android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+    android:background="#fcfcfc">
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
@@ -96,7 +95,7 @@
                 <android.support.v7.widget.CardView
                     android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
-                    android:id="@+id/bankcardId"
+                    android:id="@+id/payment"
                     android:layout_width="160dp"
                     android:layout_height="190dp"
                     android:layout_margin="10dp">
@@ -441,6 +440,10 @@
 
 
 
+
+
+
+
             <LinearLayout
                 android:clipToPadding="false"
                 android:gravity="center"
@@ -450,33 +453,29 @@
                 <android.support.v7.widget.CardView
                     android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
-                    android:layout_width="340dp"
-                    android:layout_height="150dp"
+                    android:layout_width="160dp"
+                    android:layout_height="190dp"
                     android:layout_margin="10dp"
-                    android:id="@+id/SOS_History">
+                    android:id="@+id/SOS_Request">
                     <LinearLayout
-
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:background="@color/lightgray">
-
                         <ImageView
-                            android:id="@+id/imageView"
                             android:layout_width="64dp"
                             android:layout_height="64dp"
-                            android:background="@drawable/cerclebackgroundwhite"
-                            android:padding="10dp"
-                            android:src="@drawable/ic_drawable_time" />
-
+                            android:background="@drawable/cerclebackgroundfire"
+                            android:src="@drawable/fire"
+                            android:padding="10dp"/>
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textStyle="bold"
                             android:layout_marginTop="10dp"
                             android:textColor="@android:color/black"
-                            android:text="SOS History"/>
+                            android:text="SOS REQUEST"/>
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
@@ -486,12 +485,60 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="SOS Log"
+                            android:text="SOS Request"
                             android:padding="5dp"
                             android:textColor="@android:color/black"/>
 
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:layout_width="160dp"
+                    android:layout_height="190dp"
+                    android:layout_margin="10dp"
+                    android:id="@+id/SOS_History">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:background="@color/lightgray">
+
+                        <ImageView
+                            android:layout_width="64dp"
+                            android:layout_height="64dp"
+                            android:background="@drawable/cerclebackgroundwhite"
+                            android:padding="10dp"
+                            android:src="@drawable/ic_drawable_time" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@android:color/black"
+                            android:text="SOS HISTORY"
+                            android:textStyle="bold" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_margin="10dp"
+                            android:background="@color/lightgray" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="SOS History Log"
+                            android:textColor="@android:color/black"/>
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+
 
 
             </LinearLayout>

@@ -28,17 +28,17 @@
 
 
             <TextView
-                android:id="@+id/sos_id"
+                android:id="@+id/sos_history_id"
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical|start"
                 android:textAllCaps="true"
                 android:textStyle="bold"
-                android:text="SOS ID :"
+                android:text="SOS History ID :"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/sos_user"
+                android:id="@+id/sos_history_user"
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical|start"
                 android:textAllCaps="true"
@@ -49,7 +49,7 @@
 
 
             <TextView
-                android:id="@+id/sos_unit"
+                android:id="@+id/sos_history_unit"
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical|start"
                 android:textAllCaps="true"
@@ -59,34 +59,26 @@
                 android:layout_height="wrap_content" />
 
 
+
+
+
             <TextView
-                android:id="@+id/sos_status"
+                android:id="@+id/sos_request_datetime"
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical|start"
                 android:textAllCaps="true"
                 android:textStyle="italic"
-                android:text="Status:"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-
-            <TextView
-                android:id="@+id/sos_request_date"
-                android:layout_marginLeft="10dp"
-                android:gravity="center_vertical|start"
-                android:textAllCaps="true"
-                android:textStyle="italic"
-                android:text="SOS Request Date:"
+                android:text="SOS Request DateTime:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
             <TextView
-                android:id="@+id/sos_request_time"
+                android:id="@+id/sos_disable_datetime"
                 android:layout_marginLeft="10dp"
                 android:gravity="center_vertical|start"
                 android:textAllCaps="true"
                 android:textStyle="italic"
-                android:text="SOS Request Time:"
+                android:text="SOS Disable DateTime:"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 

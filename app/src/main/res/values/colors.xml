@@ -20,9 +20,6 @@
     <color name="graylight">#fafafa</color>
     <color name="startblue">#09c6df</color>
     <color name="endblue">#0bcce6</color>
-
-
-
     <color name="backgroundcolor">#fcfcfc</color>
     <color name="lightgray">#F4F4F4</color>
     <color name="deeppurple">#7c4dff</color>
@@ -33,15 +30,17 @@
     <color name="pink">#fe104d</color>
     <color name="red">#900C3F</color>
     <color name="white">#ffff</color>
-
     <color name="green1">#a9d440</color>
     <color name="blue1">#09c6df</color>
-
-
     <color name="orange">#F08E46</color>
-
-
-
     <color name="black_overlay">#66000000</color>
+
+
+    <color name="yellow">#D98880</color>
+
+
+    <color name="pastel_1">#A8E6CF</color>
+    <color name="pastel_2">#FF005C</color>
+    <color name="pastel_3">#CC004A</color>
 
 </resources>

@@ -3,6 +3,8 @@ package com.hfad.myresidentadmin;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.util.Log;
@@ -114,7 +116,7 @@ public class HomeFragment extends Fragment {
                     //Toast.makeText(getActivity(),"Welcome , "+Name,Toast.LENGTH_SHORT).show();
 
                     name.setText(Name);
-                    Outstanding_Bal.setText(Outstanding);
+                    Outstanding_Bal.setText("Outstanding: RM"+Outstanding);
 
                 }else {
 
@@ -135,7 +137,10 @@ public class HomeFragment extends Fragment {
 
 
         CardView AddUser = (CardView) view.findViewById(R.id.SignUp);
-        CardView SOS_MANAGEMENT = (CardView) view.findViewById(R.id.SOS_History);
+        CardView SosHistory = (CardView) view.findViewById(R.id.SOS_History);
+        CardView SosRequest = (CardView) view.findViewById(R.id.SOS_Request);
+
+        CardView Payment = (CardView) view.findViewById(R.id.payment);
 
 
 
@@ -152,19 +157,63 @@ public class HomeFragment extends Fragment {
 
 
 
-        SOS_MANAGEMENT.setOnClickListener(new View.OnClickListener() {
+        SosHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "SOS MANAGEMENT!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "SOS History Activity!",Toast.LENGTH_SHORT).show();
 
-                Intent SOS = new Intent(HomeFragment.this.getActivity(), Sos_Request.class); //Fragment to Activity Intent
-                startActivity(SOS);
+                Intent SOSHistory = new Intent(HomeFragment.this.getActivity(), Sos_History.class); //Fragment to Activity Intent
+                startActivity(SOSHistory);
+
+            }
+        });
+
+
+        SosRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "SOS Request Page!",Toast.LENGTH_SHORT).show();
+
+                Intent SOSRequest = new Intent(HomeFragment.this.getActivity(), Sos_Request.class); //Fragment to Activity Intent
+                startActivity(SOSRequest);
+
+            }
+        });
+
+        Payment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), "Payment Page!",Toast.LENGTH_SHORT).show();
+
+                Intent PAYMENT = new Intent(HomeFragment.this.getActivity(), Payment.class); //Fragment to Activity Intent
+                startActivity(PAYMENT);
 
             }
         });
 
 
 
+//During Slide Down Title Bar Effect
+        final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) view.findViewById(R.id.collapsingToolbar);
+        AppBarLayout appBarLayout = (AppBarLayout) view.findViewById(R.id.appbar);
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            boolean isShow = true;
+            int scrollRange = -1;
+
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (scrollRange == -1) {
+                    scrollRange = appBarLayout.getTotalScrollRange();
+                }
+                if (scrollRange + verticalOffset == 0) {
+                    collapsingToolbarLayout.setTitle("My Residence APP");
+                    isShow = true;
+                } else if(isShow) {
+                    collapsingToolbarLayout.setTitle("");//carefull there should a space between double quote otherwise it wont work
+                    isShow = false;
+                }
+            }
+        });
 
 
 
