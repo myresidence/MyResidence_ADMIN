@@ -1,6 +1,5 @@
 package com.hfad.myresidentadmin;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,12 +10,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -24,6 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class Home_Bottom_Navigation extends AppCompatActivity {
 
@@ -51,6 +50,8 @@ public class Home_Bottom_Navigation extends AppCompatActivity {
     FirebaseDatabase db;
     DatabaseReference users;
 
+
+    SweetAlertDialog pDialog;
 
 
     String Name, Unit, Level, No;
@@ -112,38 +113,28 @@ public class Home_Bottom_Navigation extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(Home_Bottom_Navigation.this);
-                builder.setTitle("SOS Button Confirmation");
-                builder.setMessage("Are You Confirm Select SOS Button ?");
-
-
-                builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-
-                        Intent sos_btn = new Intent(Home_Bottom_Navigation.this,SOS.class);
-                        startActivity(sos_btn);
-
-                        Toast.makeText(Home_Bottom_Navigation.this, "Our Security Guard Will Reached To Your Door Step ASAP!",Toast.LENGTH_SHORT).show();
-
-                    }
-                });
-
-                builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
 
 
 
-                    }
-                });
+                pDialog = new SweetAlertDialog(v.getContext(), SweetAlertDialog.WARNING_TYPE);
+                        pDialog.setTitleText("SOS Button Confirmation");
+                        pDialog.setContentText("Are You Confirm Select SOS Button ?");
+                pDialog.setCancelText("No");
+                pDialog.setConfirmText("Yes");
+                pDialog.showCancelButton(true);
+                pDialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sDialog) {
 
-                final  AlertDialog alertDialog = builder.create();
+                                Intent sos_btn = new Intent(Home_Bottom_Navigation.this,SOS.class);
+                                startActivity(sos_btn);
+                                sDialog.cancel();
+                            }
+                        })
+                        .show();
 
-                alertDialog.show();
 
-                alertDialog.setCanceledOnTouchOutside(false);
-                alertDialog.setCancelable(false);
+
 
             }
         });

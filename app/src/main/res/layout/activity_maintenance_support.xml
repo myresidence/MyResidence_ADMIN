@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.hfad.myresidentadmin.Visitor">
-
-
+    tools:context="com.hfad.myresidentadmin.MaintenanceSupport">
 
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -21,27 +19,14 @@
             android:layout_height="682dp"
             android:id="@+id/linearLayout2"
             android:orientation="horizontal"
-            android:background="@drawable/visitor">
+            android:background="@drawable/report">
 
 
         </LinearLayout>
 
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_marginTop="325dp"
-            android:layout_marginLeft="50dp"
-            android:layout_height="275dp"
-            android:id="@+id/linearLayout3"
-            android:orientation="horizontal"
-            android:background="@drawable/qrcode">
-
-
-        </LinearLayout>
 
 
 
     </RelativeLayout>
-
 
 </ScrollView>

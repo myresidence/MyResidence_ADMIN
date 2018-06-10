@@ -25,6 +25,8 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 import static android.content.Context.MODE_PRIVATE;
 
 
@@ -34,6 +36,8 @@ public class HomeFragment extends Fragment {
 
 
     TextView name,Outstanding_Bal;
+
+
 
 
     SharedPreferences mySharedPreferences;
@@ -51,6 +55,8 @@ public class HomeFragment extends Fragment {
 
     String Name, Unit, Level, No, Outstanding;
 
+    SweetAlertDialog pDialog;
+
 
     public HomeFragment() {
         // Required empty public constructor
@@ -61,6 +67,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
 
 
@@ -111,8 +118,6 @@ public class HomeFragment extends Fragment {
                     Outstanding = user.getOutstanding();
 
 
-
-
                     //Toast.makeText(getActivity(),"Welcome , "+Name,Toast.LENGTH_SHORT).show();
 
                     name.setText(Name);
@@ -142,15 +147,56 @@ public class HomeFragment extends Fragment {
 
         CardView Payment = (CardView) view.findViewById(R.id.payment);
 
+        CardView Booking = (CardView) view.findViewById(R.id.booking_facility);
+
+        CardView Voting = (CardView) view.findViewById(R.id.e_voting);
+
+        CardView Report = (CardView) view.findViewById(R.id.report);
+
+        CardView Advertisement = (CardView) view.findViewById(R.id.Advertisement);
+
+        CardView Visitor = (CardView) view.findViewById(R.id.visitor);
+
 
 
         AddUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "Register Member!",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Register Member!",Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(HomeFragment.this.getActivity(), SignUp.class); //Fragment to Activity Intent
-                startActivity(intent);
+
+
+                pDialog = new SweetAlertDialog(v.getContext(), SweetAlertDialog.CUSTOM_IMAGE_TYPE);
+                pDialog.setCustomImage(R.drawable.ic_account_circle_black_24dp);
+                pDialog.setTitleText("Register User Type");
+                pDialog.setContentText("Please Select Register User Type!");
+                pDialog.setCancelText("User");
+                pDialog.setConfirmText("Sub User");
+                pDialog.showCancelButton(true);
+                pDialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+
+                        Intent RegisterSubUser = new Intent(HomeFragment.this.getActivity(),SignUpSubUser.class); //Fragment to Activity Intent
+                        startActivity(RegisterSubUser);
+                        sDialog.cancel();
+                    }
+                })
+                        .show();
+
+                pDialog.setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog dDialog) {
+
+
+                        Intent RegisterUser = new Intent(HomeFragment.this.getActivity(),SignUpUser.class); //Fragment to Activity Intent
+                        startActivity(RegisterUser);
+                        dDialog.cancel();
+
+                    }
+                }).show();
+
+
 
             }
         });
@@ -160,7 +206,7 @@ public class HomeFragment extends Fragment {
         SosHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "SOS History Activity!",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "SOS History Activity!",Toast.LENGTH_SHORT).show();
 
                 Intent SOSHistory = new Intent(HomeFragment.this.getActivity(), Sos_History.class); //Fragment to Activity Intent
                 startActivity(SOSHistory);
@@ -172,7 +218,7 @@ public class HomeFragment extends Fragment {
         SosRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "SOS Request Page!",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "SOS Request Page!",Toast.LENGTH_SHORT).show();
 
                 Intent SOSRequest = new Intent(HomeFragment.this.getActivity(), Sos_Request.class); //Fragment to Activity Intent
                 startActivity(SOSRequest);
@@ -183,10 +229,87 @@ public class HomeFragment extends Fragment {
         Payment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "Payment Page!",Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getActivity(), "Payment Page!",Toast.LENGTH_SHORT).show();
 
                 Intent PAYMENT = new Intent(HomeFragment.this.getActivity(), Payment.class); //Fragment to Activity Intent
                 startActivity(PAYMENT);
+
+            }
+        });
+
+
+
+        SosRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(getActivity(), "SOS Request Page!",Toast.LENGTH_SHORT).show();
+
+                Intent SOSRequest = new Intent(HomeFragment.this.getActivity(), Sos_Request.class); //Fragment to Activity Intent
+                startActivity(SOSRequest);
+
+            }
+        });
+
+        Booking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent BOOKING = new Intent(HomeFragment.this.getActivity(), BookingFacility.class); //Fragment to Activity Intent
+                startActivity(BOOKING);
+
+            }
+        });
+
+
+        SosRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText(getActivity(), "SOS Request Page!",Toast.LENGTH_SHORT).show();
+
+                Intent SOSRequest = new Intent(HomeFragment.this.getActivity(), Sos_Request.class); //Fragment to Activity Intent
+                startActivity(SOSRequest);
+
+            }
+        });
+
+        Voting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent VOTING = new Intent(HomeFragment.this.getActivity(), E_Voting.class); //Fragment to Activity Intent
+                startActivity(VOTING);
+
+            }
+        });
+
+
+        Report.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent REPORT = new Intent(HomeFragment.this.getActivity(), MaintenanceSupport.class); //Fragment to Activity Intent
+                startActivity(REPORT);
+
+            }
+        });
+
+
+        Advertisement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent ADVERTISEMENT = new Intent(HomeFragment.this.getActivity(), Advertisement.class); //Fragment to Activity Intent
+                startActivity(ADVERTISEMENT);
+
+            }
+        });
+
+        Visitor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent VISITOR = new Intent(HomeFragment.this.getActivity(), Visitor.class); //Fragment to Activity Intent
+                startActivity(VISITOR);
 
             }
         });
@@ -259,6 +382,9 @@ public class HomeFragment extends Fragment {
         }
 
     }
+
+
+
 
 
 

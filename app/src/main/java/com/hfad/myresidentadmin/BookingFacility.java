@@ -4,14 +4,16 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
-public class Visitor extends AppCompatActivity {
+public class BookingFacility extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_visitor);
+        setContentView(R.layout.activity_booking_facility);
+
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+
     }
 }

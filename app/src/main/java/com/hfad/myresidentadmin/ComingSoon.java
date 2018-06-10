@@ -3,11 +3,11 @@ package com.hfad.myresidentadmin;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class SignUp extends AppCompatActivity {
+public class ComingSoon extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_coming_soon);
     }
 }

@@ -42,7 +42,7 @@
                 android:layout_gravity="center" />
             <TextView
                 android:gravity="center"
-                android:text="Makes your life better."
+                android:text="A WAY TO CONVENIENCE LIFESTYLE"
                 android:layout_marginTop="20dp"
                 android:textSize="20sp"
                 android:textStyle="italic"
